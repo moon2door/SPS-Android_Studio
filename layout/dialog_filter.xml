@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find the dog you’re looking for"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#2D2B55"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="* Empty fields will be searched as “All.”\nEnter only the conditions you need."
+        android:textSize="13sp"
+        android:textColor="#888888"
+        android:layout_marginBottom="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What kind of dog are you looking for?"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+    <EditText
+        android:id="@+id/etFilterBreed"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter breed (optional)"
+        android:textSize="15sp"
+        android:background="@drawable/bg_input_box"
+        android:paddingStart="15dp"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/etFilterAge"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Search age (optional)"
+        android:textSize="15sp"
+        android:inputType="number"
+        android:background="@drawable/bg_input_box"
+        android:paddingStart="15dp"
+        android:layout_marginBottom="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp">
+
+        <EditText
+            android:id="@+id/etFilterCondition"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Health condition (optional)"
+            android:textSize="15sp"
+            android:background="@drawable/bg_input_box"
+            android:paddingStart="15dp"
+            android:layout_marginEnd="5dp"/>
+
+        <EditText
+            android:id="@+id/etFilterFeature"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Feature keywords (optional)"
+            android:textSize="15sp"
+            android:background="@drawable/bg_input_box"
+            android:paddingStart="15dp"
+            android:layout_marginStart="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="↻  Reset"
+            android:textColor="#000000"
+            android:backgroundTint="#EEEEEE"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="2"
+            android:text="🔍  Search"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#2D2B55"/>
+    </LinearLayout>
+
+</LinearLayout>
