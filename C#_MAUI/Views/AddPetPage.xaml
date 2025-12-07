@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_SPS.Views.AddPetPage"
+             xmlns:viewmodels="clr-namespace:_SPS.ViewModels"
+             Title="새 동물 등록">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AddPetViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+
+            <Label Text="보호 동물 정보 입력" FontSize="20" FontAttributes="Bold" />
+
+            <Frame HeightRequest="200" WidthRequest="200" CornerRadius="10" Padding="0" IsClippedToBounds="True" BackgroundColor="#eee">
+                <Grid>
+                    <Image Source="{Binding PetImageSource}" Aspect="AspectFill" />
+
+                    <Label Text="터치하여 사진 선택" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center" 
+                           TextColor="Gray">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding PetImageSource}" Value="{x:Null}">
+                                <Setter Property="IsVisible" Value="True" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding PetImageSource, Converter={StaticResource IsNotNullConverter}}" Value="True">
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+
+                    <Button BackgroundColor="Transparent" 
+                            Command="{Binding PickImageCommand}" 
+                            HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                </Grid>
+            </Frame>
+
+            <Entry Placeholder="이름 (예: 뽀삐)" Text="{Binding Name}" />
+            <Entry Placeholder="종 (예: 말티즈, 코숏)" Text="{Binding Species}" />
+            <Entry Placeholder="나이 (예: 3살)" Text="{Binding Age}" Keyboard="Numeric" />
+
+            <Editor Placeholder="특징 및 설명" 
+                    Text="{Binding Description}" 
+                    HeightRequest="100" 
+                    AutoSize="TextChanges"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Blue"/>
+
+            <Button Text="등록하기" Command="{Binding SavePetCommand}" Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
